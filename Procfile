@@ -1,0 +1,1 @@
+web: gunicorn Tisto.wsgi --log-file -

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>{{tisto_detail.jemok}}</h1>
+  <h3>{{tisto_detail.naeyong}}</h3>
+  <h4>{{tisto_detail.sigan}}</h4>
+  <br>
+</div>
+<br>
+<div class="menu">
+  <a href="{% url 'update' tisto_detail.id %}">수정</a>
+  <a href="{% url 'delete' tisto_detail.id %}">삭제</a>
+</div>
+{% endblock %}

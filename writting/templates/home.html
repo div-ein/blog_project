@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+{% for tisto in tistos.all %}
+  <h1><li><a href="{% url 'detail' tisto.id %}">{{tisto.jemok}}</a></li></h1>
+  <br>
+{% endfor %}
+</div>
+{% endblock %}
