@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lxfe&rad@o%ldxeqbd8sd^2ek(eg^2@2q41_k&_#o8e^m$az2^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 
 
 # Application definition
@@ -75,14 +75,27 @@ WSGI_APPLICATION = 'Tisto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+import dj_database_url
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default' : {
+        'ENGINE' : 'django.db.backends.postgresql_psycopg2',
+        'NAME' : 'd2glmgsm81v6nv', #DATABASE
+        'USER' : 'mkuqpjsbnjdopb',
+        'PASSWORD' : '9078956c11fde282be36760dd5e8f0d27ac013dee4153e49fa20d2a93be19bd2',
+        'HOST': 'ec2-52-0-114-209.compute-1.amazonaws.com',
+        'PORT' : '5432',
     }
 }
 
-
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
